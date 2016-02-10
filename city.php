@@ -30,6 +30,10 @@ class City
     {
         return $_SESSION['list_of_cities'];
     }
+    static function deleteAll()
+    {
+        $_SESSION['list_of_cities'] = array();
+    }
 
 
 }
