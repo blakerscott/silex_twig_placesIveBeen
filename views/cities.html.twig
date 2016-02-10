@@ -1,0 +1,25 @@
+<html>
+<head>
+    <title>Places I've been</title>
+</head>
+<body>
+    <h1>Cities I've Visited</h1>
+
+    {% if cities is not empty %}
+        <p>Here are the places you've been:</p>
+        <ul>
+            {% for city in cities %}
+                <li>{{ city.getDescription }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+    <form action='/cities' method='post'>
+        <label for='description'>City Name</label>
+        <input id='description' name='description' type='text'>
+
+        <button type='submit'>Add City</button>
+    </form>
+  
+</body>
+</html>
