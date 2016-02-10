@@ -2,13 +2,14 @@
 class City
 {
     private $city;
-    // private $landmark;
+    private $landmark;
     // private $city;
 
 
-    function __construct($city)
+    function __construct($city, $landmark)
     {
         $this->city = $city;
+        $this->landmark = $landmark;
     }
 
     function setCity($new_city)
@@ -19,6 +20,16 @@ class City
     function getCity()
     {
         return $this->city;
+    }
+
+    function setLandmark($new_landmark)
+    {
+        $this->landmark = (string) $new_landmark;
+    }
+
+    function getLandmark()
+    {
+        return $this->landmark;
     }
 
     function save()

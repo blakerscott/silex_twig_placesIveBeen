@@ -19,10 +19,11 @@
 
 
         return $app['twig']->render('cities.html.twig', array('cities' => City::getAll()));
+
     });
 
     $app->post("/cities", function() use ($app) {
-        $city = new City($_POST['description']); ///connects to label id on cities.html.twig
+        $city = new City($_POST['description'], $_POST['landmark']); ///connects to label id on cities.html.twig
         $city->save();
         return $app['twig']->render('create_city.html.twig', array('newcity' => $city));
     });

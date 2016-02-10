@@ -10,13 +10,18 @@
         <ul>
             {% for city in cities %}
                 <li>{{ city.getCity }}</li>
-            {% endfor %}
-        </ul>
+                <ul>
+                  <li>{{ city.getLandmark }}</li>
+                </ul>
+        {% endfor %}
+          </ul>
     {% endif %}
 
     <form action='/cities' method='post'>
         <label for='description'>City Name</label>
-        <input id='description' name='description' type='text'>
+        <input id='description' name='description' type='text'><br><br>
+        <label for='landmark'>Favorite Landmark</label>
+        <input id='landmark' name='landmark' type='text'><br>
 
         <button type='submit'>Add City</button>
     </form>
