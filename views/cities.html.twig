@@ -9,7 +9,7 @@
         <p>Here are the places you've been:</p>
         <ul>
             {% for city in cities %}
-                <li>{{ city.getDescription }}</li>
+                <li>{{ city.getCity }}</li>
             {% endfor %}
         </ul>
     {% endif %}
@@ -20,6 +20,6 @@
 
         <button type='submit'>Add City</button>
     </form>
-  
+
 </body>
 </html>

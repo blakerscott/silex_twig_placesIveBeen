@@ -1,11 +1,11 @@
 <?php
     require_once __DIR__."/../vendor/autoload.php";
-    require_once __DIR__."/../src/City.php";
+    require_once __DIR__."/../City.php";
 
     session_start();
 
-    if (empty($_SESSION['list_of_tasks'])) {
-        $_SESSION['list_of_tasks'] = array();
+    if (empty($_SESSION['list_of_cities'])) {
+        $_SESSION['list_of_cities'] = array();
     }
 
     $app = new Silex\Application();
@@ -18,20 +18,14 @@
     $app->get("/", function() use ($app) {
 
 
-        return $app['twig']->render('tasks.html.twig', array('tasks' => Task::getAll()));
+        return $app['twig']->render('cities.html.twig', array('cities' => City::getAll()));
     });
 
-    $app->post("/tasks", function() use ($app) {
-        $task = new Task($_POST['description']);
-        $task->save();
-        return $app['twig']->render('create_task.html.twig', array('newtask' => $task));
+    $app->post("/cities", function() use ($app) {
+        $city = new City($_POST['description']); ///connects to label id on cities.html.twig
+        $city->save();
+        return $app['twig']->render('create_city.html.twig', array('newcity' => $city));
     });
-
-    $app->post("/delete_tasks", function() use ($app) {
-        Task::deleteAll();
-        return $app['twig']->render('delete_tasks.html.twig');
-    });
-
 
 
     return $app;
